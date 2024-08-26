@@ -1,17 +1,14 @@
-package br.com.desafiosicredi.tests.auth.tests;
+package br.com.desafiosicredi.tests;
 
 import br.com.desafiosicredi.base.BaseTest;
 import br.com.desafiosicredi.suites.AcceptanceTests;
 import br.com.desafiosicredi.suites.AllTests;
-import br.com.desafiosicredi.suites.ContratoTest;
 import br.com.desafiosicredi.suites.SmokeTests;
 import br.com.desafiosicredi.tests.auth.requests.GetAuthRequest;
 import br.com.desafiosicredi.tests.auth.requests.PostAuthRequest;
-import br.com.desafiosicredi.utils.Utils;
+import io.qameta.allure.Description;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-
-import java.io.File;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static org.hamcrest.Matchers.equalTo;
@@ -22,8 +19,8 @@ public class GetAuthTest extends BaseTest {
         PostAuthRequest posauthrequest = new PostAuthRequest();
         @Test
         @Category({AllTests.class, SmokeTests.class})
-        public void ValidaGetAuthprodutosOK(){
-
+        @Description("Valida busca de produtos passando parâmetros usuário e senha válidos ")
+        public void validaGetAuthProdutosOK(){
             getauthrequest.GetProdutoscomToken(posauthrequest.Token("emilys","emilyspass"))
                     .then()
                     .statusCode(200)
@@ -32,6 +29,7 @@ public class GetAuthTest extends BaseTest {
 
         @Test
         @Category({AllTests.class, AcceptanceTests.class})
+        @Description("Valida erro na busca de produtos passando parâmetros token inválido")
         public void ValidaGetProdutosTokenInvalido(){
             getauthrequest.GetProdutoscomToken("Testinvalid")
                     .then()
@@ -41,13 +39,11 @@ public class GetAuthTest extends BaseTest {
 
         @Test
         @Category({AllTests.class, SmokeTests.class, AcceptanceTests.class})
-        public  void ValidaGGetProdutosacessoTipoUser(){
+        @Description("Valida busca de produtos passando parametro de usuario sem permissao")
+        public  void ValidaGetProdutosacessoTipoUser(){
              getauthrequest.GetProdutoscomToken(posauthrequest.Token("abigailr","abigailrpass"))
                      .then()
                      .statusCode(403)
                      .body("message", equalTo("Authentication Problem"));
         }
-
-
-
 }

@@ -1,7 +1,7 @@
 package br.com.desafiosicredi.tests.products.requests;
 
 import br.com.desafiosicredi.base.BaseTest;
-import br.com.desafiosicredi.tests.products.requests.payloads.ProductsPayloads;
+import br.com.desafiosicredi.tests.products.payloads.ProductsPayloads;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;

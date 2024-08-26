@@ -1,4 +1,4 @@
-package br.com.desafiosicredi.tests.auth.requests.payloads;
+package br.com.desafiosicredi.tests.auth.payloads;
 
 import org.json.JSONObject;
 

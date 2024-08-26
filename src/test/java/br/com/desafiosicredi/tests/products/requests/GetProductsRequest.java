@@ -7,7 +7,13 @@ import static io.restassured.RestAssured.given;
 
 public class GetProductsRequest extends BaseTest {
 
+    public Response GetProdutoid(int id){
+        return (Response)
+                given()
+                        .when()
+                        .get("products/"+id);
 
+    }
     public Response GetProdutos(){
         return (Response)
                 given()

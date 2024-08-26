@@ -1,0 +1,47 @@
+image: maven :latest
+
+stages:
+  - alltests
+  - acceptancetests
+  - smoketests
+  - contracttests
+
+"All Tests":
+  stage: alltests
+  script:
+    - mvn clean test -Dtest=\*AllTests
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - target/extent-output/*.html'
+
+"Acceptance Tests":
+  stage: acceptancetests
+  script:
+    - mvn clean test -Dtest=\*AcceptanceTests
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - target/extent-output/*.html
+
+"Contract Tests":
+  stage: contracttests
+  script:
+    - mvn clean test -Dtest=\*ContractTests
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - target/extent-output/*.html
+
+"Smoke Tests":
+  stage: smoketests
+  script:
+    - mvn clean test -Dtest=\*SmokeTests
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - target/extent-output/*.html

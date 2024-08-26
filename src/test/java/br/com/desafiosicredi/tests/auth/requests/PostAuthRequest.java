@@ -1,7 +1,7 @@
 package br.com.desafiosicredi.tests.auth.requests;
 
 import br.com.desafiosicredi.base.BaseTest;
-import br.com.desafiosicredi.tests.auth.requests.payloads.AuthPayloads;
+import br.com.desafiosicredi.tests.auth.payloads.AuthPayloads;
 import io.restassured.response.Response;
 
 

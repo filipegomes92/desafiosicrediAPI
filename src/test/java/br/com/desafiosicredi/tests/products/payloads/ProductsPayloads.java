@@ -1,4 +1,4 @@
-package br.com.desafiosicredi.tests.products.requests.payloads;
+package br.com.desafiosicredi.tests.products.payloads;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.json.JSONObject;
